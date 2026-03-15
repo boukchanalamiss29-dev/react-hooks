@@ -1,38 +1,339 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@300;400;600;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Nunito', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ── NAVBAR ── */
+.cine-nav {
+  background: linear-gradient(90deg, #1a0533, #0d1b4b);
+  padding: 16px 32px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff) 1;
+}
+
+.logo {
+  font-family: 'Righteous', cursive;
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 3px;
+}
+
+.btn-add-nav {
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  color: #111;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-family: 'Righteous', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-add-nav:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+/* ── HERO ── */
+.hero-section {
+  position: relative;
+  padding: 70px 40px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.papa-blogueur.fr/wp-content/uploads/2022/09/comment-faire-un-montage-video-facilement-768x437.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.15) blur(3px);
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-content { position: relative; z-index: 2; }
+
+.hero-label {
+  color: #ffd93d;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.hero-title {
+  font-family: 'Righteous', cursive;
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 40%, #6bcb77 70%, #4d96ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  color: #aaa;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.stat-chip:nth-child(1) { background: rgba(255,107,107,0.15); border: 1px solid #ff6b6b; color: #ff6b6b; }
+.stat-chip:nth-child(2) { background: rgba(255,217,61,0.15);  border: 1px solid #ffd93d; color: #ffd93d; }
+.stat-chip:nth-child(3) { background: rgba(107,203,119,0.15); border: 1px solid #6bcb77; color: #6bcb77; }
+.stat-chip:nth-child(4) { background: rgba(77,150,255,0.15);  border: 1px solid #4d96ff; color: #4d96ff; }
+
+.stat-chip span {
+  font-family: 'Righteous', cursive;
+  font-size: 1.2rem;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  backdrop-filter: blur(10px);
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+/* ── DARK INPUTS ── */
+.dark-input {
+  background: rgba(0,0,0,0.4) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  border-radius: 10px;
+}
+
+.dark-input:focus {
+  border-color: #ffd93d !important;
+  box-shadow: 0 0 0 3px rgba(255,217,61,0.15) !important;
+}
+
+.dark-input option { background: #1a1a1a; }
+
+/* ── ADD FORM ── */
+.add-form {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #ffd93d;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255,217,61,0.1);
+}
+
+.add-form h5 {
+  font-family: 'Righteous', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── GENRE SECTIONS ── */
+.genre-section { margin-bottom: 48px; }
+
+.section-title {
+  font-family: 'Righteous', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  color: #fff;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, transparent);
+  margin-left: 10px;
+}
+
+.genre-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  box-shadow: 0 0 8px #ff6b6b;
+}
+
+/* ── MOVIE CARD ── */
+.movie-card-wrapper { cursor: pointer; }
+
+.movie-card {
+  position: relative;
+  aspect-ratio: 2/3;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card-wrapper:hover .movie-card {
+  border: 2px solid #ffd93d;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(255, 217, 61, 0.25);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.movie-card-wrapper:hover .movie-card img { transform: scale(1.08); }
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.97) 55%, rgba(0,0,0,0.3) 100%);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card-overlay.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.genre-tag {
+  color: #fff;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+}
+
+.overlay-title {
+  font-family: 'Righteous', cursive;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+
+.overlay-year { color: #ffd93d; font-size: 0.75rem; font-weight: 700; margin: 0; }
+
+.overlay-desc {
+  font-size: 0.72rem;
+  color: #ccc;
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 0;
+}
+
+.card-title-below {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── SCROLLABLE ROW ── */
+.movies-scroll-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.movies-scroll-row:active { cursor: grabbing; }
+
+.movies-scroll-row::-webkit-scrollbar { height: 4px; }
+
+.movies-scroll-row::-webkit-scrollbar-track { background: #111; }
+
+.movies-scroll-row::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #4d96ff);
+  border-radius: 10px;
+}
+
+.movies-scroll-row .movie-card-wrapper {
+  flex: 0 0 160px;
+  width: 160px;
+}
+
+/* ── NO RESULTS ── */
+.no-results { text-align: center; padding: 80px; color: #555; }
+.no-results span { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+/* ── FOOTER ── */
+.cine-footer {
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(90deg, #1a0533, #0d1b4b);
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff) 1;
+  margin-top: 60px;
 }
