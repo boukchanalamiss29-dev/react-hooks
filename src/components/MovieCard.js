@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactStars from "react-stars";
 
 function MovieCard({ movie }) {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div
       className="movie-card-wrapper"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => navigate(`/movie/${movie.id}`)}
     >
       {/* POSTER */}
       <div className="movie-card">
